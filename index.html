@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My AI App</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      background: #121212; color: #ffffff; font-family: sans-serif;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; height: 100vh; margin: 0;
+    }
+    .spinner {
+      border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid #1a73e8;
+      border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="spinner"></div>
+  <p>Launching AI App...</p>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+    // Delays for 2 seconds so the phone registers your custom icon before jumping to Google
+    setTimeout(function() {
+      window.location.href = "https://frostler-ai-711111234427.asia-southeast1.run.app";
+    }, 2000);
+  </script>
+</body>
+</html>
